@@ -1,13 +1,14 @@
-workflow "Public Repo SMS Alert" {
-  on = "public"
-  resolves = ["SMS Alert"]
-}
+name: Public-Repo-SMS-Alert
+on: [public]
 
-action "SMS Alert" {
-  uses = "bitoiu/repo-visibility-alert-action@master"
-  secrets = ["ACCOUNT_SID", "AUTH_TOKEN", "NUMBERS", "GH_TOKEN"]
-  env = {
-    LOG_LEVEL = "trace"
-    NOTIFY_ONLY = "true"
-  }
-}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: main-step
+        uses: bitoiu/repo-visibility-alert-action@master
+        env:
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          NUMBERS: ${{ secrets.NUMBERS }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }} 
