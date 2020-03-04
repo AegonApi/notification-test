@@ -1,5 +1,5 @@
 name: Public-Repo-SMS-Alert
-on: [public]
+on: public
 
 jobs:
   build:
