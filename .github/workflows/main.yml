@@ -7,6 +7,7 @@ jobs:
     steps: 
       - name: main-step
         uses: bitoiu/repo-visibility-alert-action@master
+        secrets: []
         env:
           ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
