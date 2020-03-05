@@ -1,0 +1,14 @@
+name: sms-alert
+on: [public, push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: main-step
+        uses: bitoiu/repo-visibility-alert-action@master
+        env:
+          ACCOUNT_SID: ${{ secrets.ACCOUNT_SID }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          NUMBERS: ${{ secrets.NUMBERS }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }} 
