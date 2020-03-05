@@ -1,5 +1,5 @@
 name: sms-alert
-on: public
+on: [public, push]
 
 jobs:
   build:
