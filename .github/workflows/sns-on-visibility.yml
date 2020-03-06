@@ -1,5 +1,5 @@
 name: aws-sns-publish
-on: [public, push]
+on: [public]
 
 jobs:
   build:
@@ -8,7 +8,7 @@ jobs:
       - name: sns-message
         uses: ItsKarma/aws-cli@v1.70.0
         with:
-          args: sns publish --message "Hi,\n\nYour repository has been made public. Please take appropriate action if required.\n\nThanks" --topic-arn "arn:aws:sns:ap-south-1:367382347063:GitHubRepositoryAction" --subject "GitHub repository made public!"
+          args: sns publish --message "Hi, The visiblity of your GitHub repository has changed. Please take appropriate action if required. Thanks" --topic-arn "arn:aws:sns:ap-south-1:367382347063:GitHubRepositoryAction" --subject "GitHub repository visibility changed!"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
