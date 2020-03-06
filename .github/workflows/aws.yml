@@ -1,0 +1,15 @@
+name: aws-sns-publish
+on: [public, push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: sns-message
+        uses: ItsKarma/aws-cli@v1.70.0
+        with:
+          args: aws sns publish --message "Hi,\n\nYour GitHub repository has been made public! Please take corrective action immediately if it was not done by you\n\nThanks" --topic-arn "arn:aws:sns:ap-south-1:367382347063:GitHubRepositoryAction" --subject "GitHub repository made public!"
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: "ap-south-1"
